@@ -430,6 +430,9 @@ class AppServiceSpec(BaseModel):
             "apps-d-4vcpu-8gb",
             "apps-d-4vcpu-16gb",
             "apps-d-8vcpu-32gb",
+        ]
+        | str
+        | Literal[
             "basic-xxs",
             "basic-xs",
             "basic-s",
@@ -441,7 +444,6 @@ class AppServiceSpec(BaseModel):
             "professional-l",
             "professional-xl",
         ]
-        | str
         | NotGiven
     ) = NOT_GIVEN
     """
