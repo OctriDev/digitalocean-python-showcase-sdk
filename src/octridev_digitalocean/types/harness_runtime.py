@@ -3,13 +3,13 @@
 
 import importlib
 
-from .harness_runtime_part001 import (
+from .harness_runtime_harness_list_configs import (
     AgentConfigCreateRequest,
     AgentConfigSummary,
     InsightsOptIn,
     Permissions,
 )
-from .harness_runtime_part002 import (
+from .harness_runtime_shared import (
     AgentManifest,
     AgentManifestMetadata,
     AgentManifestSpec,
@@ -32,7 +32,7 @@ from .harness_runtime_part002 import (
     AgentManifestSpecToolsMcpServersItemAuth,
     AgentManifestSpecWorkspace,
 )
-from .harness_runtime_part003 import (
+from .harness_runtime_shared2 import (
     AgentConfig,
     AgentConfigCloneRequest,
     AgentConfigCredentialSlot,
@@ -51,7 +51,7 @@ from .harness_runtime_part003 import (
     StreamEvent,
     ValidationResult,
 )
-from .harness_runtime_part004 import (
+from .harness_runtime_shared3 import (
     CronConfig,
     DefinitionsSession,
     ResolveHitlRequest,
@@ -115,13 +115,13 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_harness_runtime_part003 = importlib.import_module(".harness_runtime_part003", __package__)
+_harness_runtime_shared2 = importlib.import_module(".harness_runtime_shared2", __package__)
 
-_deferred_harness_runtime_part003: tuple[tuple[str, object], ...] = (
+_deferred_harness_runtime_shared2: tuple[tuple[str, object], ...] = (
     ("DefinitionsSession", DefinitionsSession),
 )
-for _name, _value in _deferred_harness_runtime_part003:
-    setattr(_harness_runtime_part003, _name, _value)
+for _name, _value in _deferred_harness_runtime_shared2:
+    setattr(_harness_runtime_shared2, _name, _value)
 
 AgentConfigCredentialSlot.model_rebuild()
 AgentConfig.model_rebuild()

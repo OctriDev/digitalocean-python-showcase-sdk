@@ -3,7 +3,7 @@
 
 import importlib
 
-from .droplet_autoscale_pools_part001 import (
+from .droplet_autoscale_pools_shared import (
     AllAutoscalePools,
     AllAutoscalePoolsVariant0,
     AllMembers,
@@ -21,7 +21,7 @@ from .droplet_autoscale_pools_part001 import (
     Member,
     MemberCurrentUtilization,
 )
-from .droplet_autoscale_pools_part002 import (
+from .droplet_autoscale_pools_shared2 import (
     AutoscalePool,
     AutoscalePoolCreate,
     AutoscalePoolCreateConfig,
@@ -51,15 +51,15 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_droplet_autoscale_pools_part001 = importlib.import_module(
-    ".droplet_autoscale_pools_part001", __package__
+_droplet_autoscale_pools_shared = importlib.import_module(
+    ".droplet_autoscale_pools_shared", __package__
 )
 
-_deferred_droplet_autoscale_pools_part001: tuple[tuple[str, object], ...] = (
+_deferred_droplet_autoscale_pools_shared: tuple[tuple[str, object], ...] = (
     ("AutoscalePool", AutoscalePool),
 )
-for _name, _value in _deferred_droplet_autoscale_pools_part001:
-    setattr(_droplet_autoscale_pools_part001, _name, _value)
+for _name, _value in _deferred_droplet_autoscale_pools_shared:
+    setattr(_droplet_autoscale_pools_shared, _name, _value)
 
 AutoscalePoolStaticConfig.model_rebuild()
 AutoscalePoolDynamicConfig.model_rebuild()
