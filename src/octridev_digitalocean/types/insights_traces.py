@@ -3,7 +3,7 @@
 
 import importlib
 
-from .insights_traces_part001 import (
+from .insights_traces_insights_post_traces_search import (
     TracesFieldRef,
     TracesFilterValue,
     TracesFilterValueVariant4,
@@ -19,7 +19,7 @@ from .insights_traces_part001 import (
     TracesTraceResponse,
     TracesTraceSummary,
 )
-from .insights_traces_part002 import TracesFilterExpression
+from .insights_traces_insights_post_traces_search2 import TracesFilterExpression
 
 __all__ = [
     "TracesFieldRef",
@@ -41,13 +41,15 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_insights_traces_part001 = importlib.import_module(".insights_traces_part001", __package__)
+_insights_traces_insights_post_traces_search = importlib.import_module(
+    ".insights_traces_insights_post_traces_search", __package__
+)
 
-_deferred_insights_traces_part001: tuple[tuple[str, object], ...] = (
+_deferred_insights_traces_insights_post_traces_search: tuple[tuple[str, object], ...] = (
     ("TracesFilterExpression", TracesFilterExpression),
 )
-for _name, _value in _deferred_insights_traces_part001:
-    setattr(_insights_traces_part001, _name, _value)
+for _name, _value in _deferred_insights_traces_insights_post_traces_search:
+    setattr(_insights_traces_insights_post_traces_search, _name, _value)
 
 TracesTimeInstant.model_rebuild()
 TracesTimeRange.model_rebuild()

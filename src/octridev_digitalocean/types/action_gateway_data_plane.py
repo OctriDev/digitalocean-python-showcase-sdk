@@ -3,7 +3,17 @@
 
 import importlib
 
-from .action_gateway_data_plane_part001 import (
+from .action_gateway_data_plane_gateway_code_run import (
+    ApprovalDecision,
+    ApprovalDecisionResponse,
+    ExecuteCodeResponse,
+    ExecuteCodeResponseVariant1,
+    ExecuteCodeResponseVariant1Output,
+    Forbidden,
+    SearchToolsResult,
+    SessionTool,
+)
+from .action_gateway_data_plane_gateway_tools_list import (
     DataPlaneSearchToolsResponse,
     DataPlaneSearchToolsResponseVariant1,
     DataPlaneSearchToolsResponseVariant1Output,
@@ -19,16 +29,6 @@ from .action_gateway_data_plane_part001 import (
     ToolCall,
     ToolResult,
     ToolResultError,
-)
-from .action_gateway_data_plane_part002 import (
-    ApprovalDecision,
-    ApprovalDecisionResponse,
-    ExecuteCodeResponse,
-    ExecuteCodeResponseVariant1,
-    ExecuteCodeResponseVariant1Output,
-    Forbidden,
-    SearchToolsResult,
-    SessionTool,
 )
 
 __all__ = [
@@ -59,16 +59,16 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_action_gateway_data_plane_part001 = importlib.import_module(
-    ".action_gateway_data_plane_part001", __package__
+_action_gateway_data_plane_gateway_tools_list = importlib.import_module(
+    ".action_gateway_data_plane_gateway_tools_list", __package__
 )
 
-_deferred_action_gateway_data_plane_part001: tuple[tuple[str, object], ...] = (
+_deferred_action_gateway_data_plane_gateway_tools_list: tuple[tuple[str, object], ...] = (
     ("SearchToolsResult", SearchToolsResult),
     ("SessionTool", SessionTool),
 )
-for _name, _value in _deferred_action_gateway_data_plane_part001:
-    setattr(_action_gateway_data_plane_part001, _name, _value)
+for _name, _value in _deferred_action_gateway_data_plane_gateway_tools_list:
+    setattr(_action_gateway_data_plane_gateway_tools_list, _name, _value)
 
 ListSessionToolsResponse.model_rebuild()
 ErrorEnvelope.model_rebuild()

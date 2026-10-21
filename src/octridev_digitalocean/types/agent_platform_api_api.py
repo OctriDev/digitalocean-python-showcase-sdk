@@ -3,58 +3,34 @@
 
 import importlib
 
-from .agent_platform_api_api_part001 import (
-    ApiAgentChatbotIdentifier,
-    ApiAgentTemplateGuardrail,
-    ApiAgreement,
-    ApiBatchJobPhase,
-    ApiChatbot,
-    ApiIndexJobStatus,
-    ApiMcpServer,
-    ApiModelEndpoint,
-    ApiModelModalities,
-    ApiModelProvider,
-    ApiModelRouter,
-    ApiModelRouterConfig,
-    ApiModelRouterSelectionPolicy,
-    ApiModelRouterTaskDetails,
-    ApiModelRouterTaskPolicy,
-    ApiModelSetting,
-    ApiModelUsecase,
-    ApiRerankingConfiguration,
-    ApiRetrievalMethod,
+from .agent_platform_api_api_genai_create_knowledge_base import (
+    ApiKBDataSource,
+    ApiKnowledgeBaseDataSource,
+    ApiModelEvaluationPreset,
+    ApiModelEvaluationRunSummary,
+    ApiWebCrawlerDataSource,
 )
-from .agent_platform_api_api_part002 import (
-    ApiAgentAPIKey,
-    ApiAgentAPIKeyInfo,
-    ApiAgentFunction,
-    ApiAgentLoggingConfig,
-    ApiAgentTemplateType,
-    ApiAnthropicAPIKeyInfo,
-    ApiGuardrailType,
-    ApiKnowledgeBase,
-    ApiLinks,
-    ApiMeta,
-    ApiPages,
+from .agent_platform_api_api_genai_get_model_evaluation_run import (
+    ApiCodeSnippets,
+    ApiEvaluationPricing,
+    ApiModelAPIKeyInfo,
+    ApiModelBillingMode,
+    ApiModelCatalogSortBy,
+    ApiModelEvaluationRunResultSummary,
+    ApiModelPricing,
+    ApiModelPricingDetail,
+    ApiModelPricingEntry,
+    ApiModelPricingInterval,
+    ApiModelPricingTier,
+    ApiModelScaledPricing,
+    ApiPerTaskResultSummaries,
+    ApiSortDirection,
 )
-from .agent_platform_api_api_part003 import (
-    ApiAgentChildRelationshipVerion,
-    ApiAgentGuardrailInput,
-    ApiAssociatedModelEvaluationPreset,
-    ApiEvaluationDatasetParadigm,
-    ApiEvaluationDatasetType,
-    ApiEvaluationMetricCategory,
-    ApiEvaluationMetricSource,
-    ApiEvaluationMetricType,
-    ApiEvaluationMetricValueType,
-    ApiEvaluationScope,
-    ApiEvaluationTestCase,
-    ApiOpenAIAPIKeyInfo,
-    ApiResourceUsage,
-    ApiUsageMeasurement,
-    ApiWorkspace,
+from .agent_platform_api_api_genai_get_model_evaluation_run2 import (
+    ApiModelEvaluationRunDetail,
+    ApiModelPricingVariant,
 )
-from .agent_platform_api_api_part004 import (
+from .agent_platform_api_api_genai_list_agent_versions import (
     ApiAgentFunctionVersion,
     ApiAgentGuardrailVersion,
     ApiAgentKnowledgeBaseVersion,
@@ -77,7 +53,72 @@ from .agent_platform_api_api_part004 import (
     ApiToolSpan,
     ApiWorkflowSpan,
 )
-from .agent_platform_api_api_part005 import (
+from .agent_platform_api_api_genai_list_agents import ApiAgentPublic
+from .agent_platform_api_api_genai_list_model_catalog import (
+    ApiModel,
+    ApiModelCatalogCard,
+    ApiModelCatalogEntry,
+)
+from .agent_platform_api_api_genai_list_model_router_presets import (
+    ApiModelProviderKeyInfo,
+    ApiModelPublic,
+    ApiModelRouterPreset,
+    ApiModelRouterTaskPreset,
+    ApiModelVersion,
+    ApiScheduledIndexingInfo,
+)
+from .agent_platform_api_api_shared import (
+    ApiAgentChatbotIdentifier,
+    ApiAgentTemplateGuardrail,
+    ApiAgreement,
+    ApiBatchJobPhase,
+    ApiChatbot,
+    ApiIndexJobStatus,
+    ApiMcpServer,
+    ApiModelEndpoint,
+    ApiModelModalities,
+    ApiModelProvider,
+    ApiModelRouter,
+    ApiModelRouterConfig,
+    ApiModelRouterSelectionPolicy,
+    ApiModelRouterTaskDetails,
+    ApiModelRouterTaskPolicy,
+    ApiModelSetting,
+    ApiModelUsecase,
+    ApiRerankingConfiguration,
+    ApiRetrievalMethod,
+)
+from .agent_platform_api_api_shared2 import (
+    ApiAgentAPIKey,
+    ApiAgentAPIKeyInfo,
+    ApiAgentFunction,
+    ApiAgentLoggingConfig,
+    ApiAgentTemplateType,
+    ApiAnthropicAPIKeyInfo,
+    ApiGuardrailType,
+    ApiKnowledgeBase,
+    ApiLinks,
+    ApiMeta,
+    ApiPages,
+)
+from .agent_platform_api_api_shared3 import (
+    ApiAgentChildRelationshipVerion,
+    ApiAgentGuardrailInput,
+    ApiAssociatedModelEvaluationPreset,
+    ApiEvaluationDatasetParadigm,
+    ApiEvaluationDatasetType,
+    ApiEvaluationMetricCategory,
+    ApiEvaluationMetricSource,
+    ApiEvaluationMetricType,
+    ApiEvaluationMetricValueType,
+    ApiEvaluationScope,
+    ApiEvaluationTestCase,
+    ApiOpenAIAPIKeyInfo,
+    ApiResourceUsage,
+    ApiUsageMeasurement,
+    ApiWorkspace,
+)
+from .agent_platform_api_api_shared4 import (
     ApiEpochResultSummary,
     ApiLatencyMetrics,
     ApiMetricResultSummary,
@@ -90,40 +131,14 @@ from .agent_platform_api_api_part005 import (
     ApiPerModelResultSummary,
     ApiPerTaskResultSummary,
 )
-from .agent_platform_api_api_part006 import (
-    ApiCodeSnippets,
-    ApiEvaluationPricing,
-    ApiModelAPIKeyInfo,
-    ApiModelBillingMode,
-    ApiModelCatalogSortBy,
-    ApiModelEvaluationRunResultSummary,
-    ApiModelPricing,
-    ApiModelPricingDetail,
-    ApiModelPricingEntry,
-    ApiModelPricingInterval,
-    ApiModelPricingTier,
-    ApiModelScaledPricing,
-    ApiPerTaskResultSummaries,
-    ApiSortDirection,
-)
-from .agent_platform_api_api_part007 import (
-    ApiModelProviderKeyInfo,
-    ApiModelPublic,
-    ApiModelRouterPreset,
-    ApiModelRouterTaskPreset,
-    ApiModelVersion,
-    ApiScheduledIndexingInfo,
-)
-from .agent_platform_api_api_part008 import ApiModel, ApiModelCatalogCard, ApiModelCatalogEntry
-from .agent_platform_api_api_part009 import ApiAgentPublic
-from .agent_platform_api_api_part010 import ApiAgent, ApiAgentVersion
-from .agent_platform_api_api_part011 import (
+from .agent_platform_api_api_shared5 import ApiAgent, ApiAgentVersion
+from .agent_platform_api_api_shared6 import (
     ApiAgentGuardrail,
     ApiAgentTemplate,
     ApiEvaluationDataset,
     ApiIndexingJob,
 )
-from .agent_platform_api_api_part012 import (
+from .agent_platform_api_api_shared7 import (
     ApiAgentSpan,
     ApiEvaluationMetric,
     ApiEvaluationMetricResult,
@@ -131,14 +146,6 @@ from .agent_platform_api_api_part012 import (
     ApiEvaluationTraceSpan,
     ApiTraceSpan,
 )
-from .agent_platform_api_api_part013 import (
-    ApiKBDataSource,
-    ApiKnowledgeBaseDataSource,
-    ApiModelEvaluationPreset,
-    ApiModelEvaluationRunSummary,
-    ApiWebCrawlerDataSource,
-)
-from .agent_platform_api_api_part014 import ApiModelEvaluationRunDetail, ApiModelPricingVariant
 
 __all__ = [
     "ApiAgent",
@@ -265,15 +272,15 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_agent_platform_api_api_part002 = importlib.import_module(
-    ".agent_platform_api_api_part002", __package__
+_agent_platform_api_api_shared2 = importlib.import_module(
+    ".agent_platform_api_api_shared2", __package__
 )
 
-_deferred_agent_platform_api_api_part002: tuple[tuple[str, object], ...] = (
+_deferred_agent_platform_api_api_shared2: tuple[tuple[str, object], ...] = (
     ("ApiIndexingJob", ApiIndexingJob),
 )
-for _name, _value in _deferred_agent_platform_api_api_part002:
-    setattr(_agent_platform_api_api_part002, _name, _value)
+for _name, _value in _deferred_agent_platform_api_api_shared2:
+    setattr(_agent_platform_api_api_shared2, _name, _value)
 
 ApiKnowledgeBase.model_rebuild()
 ApiPages.model_rebuild()
@@ -285,18 +292,18 @@ ApiAgentAPIKey.model_rebuild()
 ApiAgentFunction.model_rebuild()
 ApiAgentLoggingConfig.model_rebuild()
 
-_agent_platform_api_api_part003 = importlib.import_module(
-    ".agent_platform_api_api_part003", __package__
+_agent_platform_api_api_shared3 = importlib.import_module(
+    ".agent_platform_api_api_shared3", __package__
 )
 
-_deferred_agent_platform_api_api_part003: tuple[tuple[str, object], ...] = (
+_deferred_agent_platform_api_api_shared3: tuple[tuple[str, object], ...] = (
     ("ApiAgent", ApiAgent),
     ("ApiEvaluationDataset", ApiEvaluationDataset),
     ("ApiEvaluationMetric", ApiEvaluationMetric),
     ("ApiModel", ApiModel),
 )
-for _name, _value in _deferred_agent_platform_api_api_part003:
-    setattr(_agent_platform_api_api_part003, _name, _value)
+for _name, _value in _deferred_agent_platform_api_api_shared3:
+    setattr(_agent_platform_api_api_shared3, _name, _value)
 
 ApiOpenAIAPIKeyInfo.model_rebuild()
 ApiAssociatedModelEvaluationPreset.model_rebuild()
@@ -307,17 +314,17 @@ ApiUsageMeasurement.model_rebuild()
 ApiResourceUsage.model_rebuild()
 ApiAgentChildRelationshipVerion.model_rebuild()
 
-_agent_platform_api_api_part004 = importlib.import_module(
-    ".agent_platform_api_api_part004", __package__
+_agent_platform_api_api_genai_list_agent_versions = importlib.import_module(
+    ".agent_platform_api_api_genai_list_agent_versions", __package__
 )
 
-_deferred_agent_platform_api_api_part004: tuple[tuple[str, object], ...] = (
+_deferred_agent_platform_api_api_genai_list_agent_versions: tuple[tuple[str, object], ...] = (
     ("ApiEvaluationMetricResult", ApiEvaluationMetricResult),
     ("ApiEvaluationTraceSpan", ApiEvaluationTraceSpan),
     ("ApiTraceSpan", ApiTraceSpan),
 )
-for _name, _value in _deferred_agent_platform_api_api_part004:
-    setattr(_agent_platform_api_api_part004, _name, _value)
+for _name, _value in _deferred_agent_platform_api_api_genai_list_agent_versions:
+    setattr(_agent_platform_api_api_genai_list_agent_versions, _name, _value)
 
 ApiAgentFunctionVersion.model_rebuild()
 ApiAgentGuardrailVersion.model_rebuild()
@@ -334,15 +341,15 @@ ApiPrompt.model_rebuild()
 ApiEvaluationTestCaseMetricList.model_rebuild()
 ApiSpacesDataSource.model_rebuild()
 
-_agent_platform_api_api_part005 = importlib.import_module(
-    ".agent_platform_api_api_part005", __package__
+_agent_platform_api_api_shared4 = importlib.import_module(
+    ".agent_platform_api_api_shared4", __package__
 )
 
-_deferred_agent_platform_api_api_part005: tuple[tuple[str, object], ...] = (
+_deferred_agent_platform_api_api_shared4: tuple[tuple[str, object], ...] = (
     ("ApiEvaluationMetricResult", ApiEvaluationMetricResult),
 )
-for _name, _value in _deferred_agent_platform_api_api_part005:
-    setattr(_agent_platform_api_api_part005, _name, _value)
+for _name, _value in _deferred_agent_platform_api_api_shared4:
+    setattr(_agent_platform_api_api_shared4, _name, _value)
 
 ApiModelEvaluationRunProgress.model_rebuild()
 ApiModelEvaluationEpochAttempt.model_rebuild()
@@ -356,15 +363,15 @@ ApiPerModelResultSummary.model_rebuild()
 ApiPerModelResultSummaries.model_rebuild()
 ApiPerTaskResultSummary.model_rebuild()
 
-_agent_platform_api_api_part006 = importlib.import_module(
-    ".agent_platform_api_api_part006", __package__
+_agent_platform_api_api_genai_get_model_evaluation_run = importlib.import_module(
+    ".agent_platform_api_api_genai_get_model_evaluation_run", __package__
 )
 
-_deferred_agent_platform_api_api_part006: tuple[tuple[str, object], ...] = (
+_deferred_agent_platform_api_api_genai_get_model_evaluation_run: tuple[tuple[str, object], ...] = (
     ("ApiModelPricingVariant", ApiModelPricingVariant),
 )
-for _name, _value in _deferred_agent_platform_api_api_part006:
-    setattr(_agent_platform_api_api_part006, _name, _value)
+for _name, _value in _deferred_agent_platform_api_api_genai_get_model_evaluation_run:
+    setattr(_agent_platform_api_api_genai_get_model_evaluation_run, _name, _value)
 
 ApiPerTaskResultSummaries.model_rebuild()
 ApiModelPricingEntry.model_rebuild()
@@ -377,13 +384,15 @@ ApiModelPricingInterval.model_rebuild()
 ApiModelScaledPricing.model_rebuild()
 ApiModelPricingDetail.model_rebuild()
 
-_agent_platform_api_api_part007 = importlib.import_module(
-    ".agent_platform_api_api_part007", __package__
+_agent_platform_api_api_genai_list_model_router_presets = importlib.import_module(
+    ".agent_platform_api_api_genai_list_model_router_presets", __package__
 )
 
-_deferred_agent_platform_api_api_part007: tuple[tuple[str, object], ...] = (("ApiModel", ApiModel),)
-for _name, _value in _deferred_agent_platform_api_api_part007:
-    setattr(_agent_platform_api_api_part007, _name, _value)
+_deferred_agent_platform_api_api_genai_list_model_router_presets: tuple[tuple[str, object], ...] = (
+    ("ApiModel", ApiModel),
+)
+for _name, _value in _deferred_agent_platform_api_api_genai_list_model_router_presets:
+    setattr(_agent_platform_api_api_genai_list_model_router_presets, _name, _value)
 
 ApiModelRouterPreset.model_rebuild()
 ApiModelRouterTaskPreset.model_rebuild()
@@ -392,28 +401,28 @@ ApiModelVersion.model_rebuild()
 ApiModelProviderKeyInfo.model_rebuild()
 ApiModelPublic.model_rebuild()
 
-_agent_platform_api_api_part009 = importlib.import_module(
-    ".agent_platform_api_api_part009", __package__
+_agent_platform_api_api_genai_list_agents = importlib.import_module(
+    ".agent_platform_api_api_genai_list_agents", __package__
 )
 
-_deferred_agent_platform_api_api_part009: tuple[tuple[str, object], ...] = (
+_deferred_agent_platform_api_api_genai_list_agents: tuple[tuple[str, object], ...] = (
     ("ApiAgentTemplate", ApiAgentTemplate),
 )
-for _name, _value in _deferred_agent_platform_api_api_part009:
-    setattr(_agent_platform_api_api_part009, _name, _value)
+for _name, _value in _deferred_agent_platform_api_api_genai_list_agents:
+    setattr(_agent_platform_api_api_genai_list_agents, _name, _value)
 
 ApiAgentPublic.model_rebuild()
 
-_agent_platform_api_api_part010 = importlib.import_module(
-    ".agent_platform_api_api_part010", __package__
+_agent_platform_api_api_shared5 = importlib.import_module(
+    ".agent_platform_api_api_shared5", __package__
 )
 
-_deferred_agent_platform_api_api_part010: tuple[tuple[str, object], ...] = (
+_deferred_agent_platform_api_api_shared5: tuple[tuple[str, object], ...] = (
     ("ApiAgentGuardrail", ApiAgentGuardrail),
     ("ApiAgentTemplate", ApiAgentTemplate),
 )
-for _name, _value in _deferred_agent_platform_api_api_part010:
-    setattr(_agent_platform_api_api_part010, _name, _value)
+for _name, _value in _deferred_agent_platform_api_api_shared5:
+    setattr(_agent_platform_api_api_shared5, _name, _value)
 
 ApiAgent.model_rebuild()
 ApiAgentVersion.model_rebuild()

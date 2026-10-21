@@ -3,7 +3,56 @@
 
 import importlib
 
-from .databases_part001 import (
+from .databases_list_options import (
+    DatabaseConfig,
+    DatabaseConfigResponse,
+    LogsinkUpdate,
+    Options,
+    OptionsOptions,
+    OptionsOptionsAdvancedMysql,
+    OptionsOptionsAdvancedPg,
+    OptionsOptionsKafka,
+    OptionsOptionsMongodb,
+    OptionsOptionsMysql,
+    OptionsOptionsOpensearch,
+    OptionsOptionsPg,
+    OptionsOptionsRedis,
+    OptionsOptionsValkey,
+    OptionsVersionAvailability,
+    ValkeyAdvancedConfig,
+)
+from .databases_shared import PgbouncerAdvancedConfig, TimescaledbAdvancedConfig
+from .databases_shared2 import PostgresAdvancedConfig, PostgresAdvancedConfigPgaudit
+from .databases_shared3 import (
+    Backup,
+    DatabaseClusterResize,
+    DatabaseReplicaRead,
+    MongoAdvancedConfig,
+    OnlineMigration,
+    RedisAdvancedConfig,
+    SourceDatabase,
+    SourceDatabaseSource,
+)
+from .databases_shared4 import (
+    Autoscale,
+    DatabaseClusterRead,
+    DatabaseClusterRequest,
+    DatabaseConfigConfig,
+    DatabaseConfigResponseConfig,
+    DatabaseConnectionRequest,
+    DatabaseMaintenanceWindowRequest,
+    DatabaseMetricsAuth,
+    DatabaseResponse,
+    Databases,
+    DatabaseSchemaRegistryConfig,
+    DatabaseSchemaRegistrySubjectConfig,
+    DatabaseUserRequest,
+    Logsink,
+    Logsinks,
+    LogsinkUpdateConfig,
+    UserResponse,
+)
+from .databases_update_major_version import (
     DatabaseAutoscaleParams,
     DatabaseBackup,
     DatabaseConnection,
@@ -20,19 +69,7 @@ from .databases_part001 import (
     UserSettingsOpensearchAclItem,
     Version2,
 )
-from .databases_part002 import PgbouncerAdvancedConfig, TimescaledbAdvancedConfig
-from .databases_part003 import PostgresAdvancedConfig, PostgresAdvancedConfigPgaudit
-from .databases_part004 import (
-    Backup,
-    DatabaseClusterResize,
-    DatabaseReplicaRead,
-    MongoAdvancedConfig,
-    OnlineMigration,
-    RedisAdvancedConfig,
-    SourceDatabase,
-    SourceDatabaseSource,
-)
-from .databases_part005 import (
+from .databases_update_user import (
     Database,
     DatabaseBackups,
     DatabaseBackupsScheduledBackupTime,
@@ -52,43 +89,6 @@ from .databases_part005 import (
     UserSettingsUpdateAclItem,
     UserSettingsUpdateOpensearchAclItem,
     Version,
-)
-from .databases_part006 import (
-    Autoscale,
-    DatabaseClusterRead,
-    DatabaseClusterRequest,
-    DatabaseConfigConfig,
-    DatabaseConfigResponseConfig,
-    DatabaseConnectionRequest,
-    DatabaseMaintenanceWindowRequest,
-    DatabaseMetricsAuth,
-    DatabaseResponse,
-    Databases,
-    DatabaseSchemaRegistryConfig,
-    DatabaseSchemaRegistrySubjectConfig,
-    DatabaseUserRequest,
-    Logsink,
-    Logsinks,
-    LogsinkUpdateConfig,
-    UserResponse,
-)
-from .databases_part007 import (
-    DatabaseConfig,
-    DatabaseConfigResponse,
-    LogsinkUpdate,
-    Options,
-    OptionsOptions,
-    OptionsOptionsAdvancedMysql,
-    OptionsOptionsAdvancedPg,
-    OptionsOptionsKafka,
-    OptionsOptionsMongodb,
-    OptionsOptionsMysql,
-    OptionsOptionsOpensearch,
-    OptionsOptionsPg,
-    OptionsOptionsRedis,
-    OptionsOptionsValkey,
-    OptionsVersionAvailability,
-    ValkeyAdvancedConfig,
 )
 
 __all__ = [
@@ -175,13 +175,13 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_databases_part005 = importlib.import_module(".databases_part005", __package__)
+_databases_update_user = importlib.import_module(".databases_update_user", __package__)
 
-_deferred_databases_part005: tuple[tuple[str, object], ...] = (
+_deferred_databases_update_user: tuple[tuple[str, object], ...] = (
     ("DatabaseClusterRead", DatabaseClusterRead),
 )
-for _name, _value in _deferred_databases_part005:
-    setattr(_databases_part005, _name, _value)
+for _name, _value in _deferred_databases_update_user:
+    setattr(_databases_update_user, _name, _value)
 
 UserSettingsUpdateOpensearchAclItem.model_rebuild()
 UserSettingsUpdateAclItem.model_rebuild()
@@ -202,13 +202,13 @@ DatabaseReplicas.model_rebuild()
 DatabaseReplicaResponse.model_rebuild()
 Users.model_rebuild()
 
-_databases_part006 = importlib.import_module(".databases_part006", __package__)
+_databases_shared4 = importlib.import_module(".databases_shared4", __package__)
 
-_deferred_databases_part006: tuple[tuple[str, object], ...] = (
+_deferred_databases_shared4: tuple[tuple[str, object], ...] = (
     ("ValkeyAdvancedConfig", ValkeyAdvancedConfig),
 )
-for _name, _value in _deferred_databases_part006:
-    setattr(_databases_part006, _name, _value)
+for _name, _value in _deferred_databases_shared4:
+    setattr(_databases_shared4, _name, _value)
 
 UserResponse.model_rebuild()
 Databases.model_rebuild()

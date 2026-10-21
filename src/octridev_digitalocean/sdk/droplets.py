@@ -28,8 +28,6 @@ from ..methods.droplets import (
     droplets_list,
     droplets_list_associated_resources,
     droplets_list_associated_resources_sync,
-    droplets_list_backup_policies,
-    droplets_list_backup_policies_sync,
     droplets_list_backups,
     droplets_list_backups_sync,
     droplets_list_firewalls,
@@ -45,6 +43,8 @@ from ..methods.droplets import (
     droplets_list_supported_backup_policies,
     droplets_list_supported_backup_policies_sync,
     droplets_list_sync,
+    list_all_backup_policies,
+    list_all_backup_policies_sync,
 )
 
 
@@ -64,8 +64,8 @@ class _DropletsNamespace:
         self.list_backups.__doc__ = droplets_list_backups_sync.__doc__
         self.get_backup_policy = partial(droplets_get_backup_policy_sync, config)
         self.get_backup_policy.__doc__ = droplets_get_backup_policy_sync.__doc__
-        self.list_backup_policies = partial(droplets_list_backup_policies_sync, config)
-        self.list_backup_policies.__doc__ = droplets_list_backup_policies_sync.__doc__
+        self.list_all_backup_policies = partial(list_all_backup_policies_sync, config)
+        self.list_all_backup_policies.__doc__ = list_all_backup_policies_sync.__doc__
         self.list_supported_backup_policies = partial(
             droplets_list_supported_backup_policies_sync, config
         )
@@ -126,8 +126,8 @@ class _AsyncDropletsNamespace:
         self.list_backups.__doc__ = droplets_list_backups.__doc__
         self.get_backup_policy = partial(droplets_get_backup_policy, config)
         self.get_backup_policy.__doc__ = droplets_get_backup_policy.__doc__
-        self.list_backup_policies = partial(droplets_list_backup_policies, config)
-        self.list_backup_policies.__doc__ = droplets_list_backup_policies.__doc__
+        self.list_all_backup_policies = partial(list_all_backup_policies, config)
+        self.list_all_backup_policies.__doc__ = list_all_backup_policies.__doc__
         self.list_supported_backup_policies = partial(
             droplets_list_supported_backup_policies, config
         )

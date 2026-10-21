@@ -3,7 +3,7 @@
 
 import importlib
 
-from .apps_part001 import (
+from .apps_shared import (
     AppComponentBase,
     AppComponentInstanceBase,
     AppsBitbucketSourceSpec,
@@ -21,7 +21,7 @@ from .apps_part001 import (
     AppsImageSourceSpecDeployOnPush,
     AppVariableDefinition,
 )
-from .apps_part002 import (
+from .apps_shared2 import (
     AppHealthCheckSpec,
     AppRouteSpec,
     AppsCorsPolicy,
@@ -31,7 +31,7 @@ from .apps_part002 import (
     AppServiceSpecVariant2,
     AppsStringMatch,
 )
-from .apps_part003 import (
+from .apps_shared3 import (
     AppFunctionsSpec,
     AppJobSpec,
     AppJobSpecTermination,
@@ -42,7 +42,7 @@ from .apps_part003 import (
     AppWorkerSpecTermination,
     AppWorkerSpecVariant2,
 )
-from .apps_part004 import (
+from .apps_shared4 import (
     AppDatabaseSpec,
     AppIngressSpec,
     AppIngressSpecRule,
@@ -57,7 +57,7 @@ from .apps_part004 import (
     AppSpec,
     AppsRegion,
 )
-from .apps_part005 import (
+from .apps_shared5 import (
     App,
     AppInstance,
     AppInstances,
@@ -79,7 +79,7 @@ from .apps_part005 import (
     AppsRestartRequest,
     Schema,
 )
-from .apps_part006 import (
+from .apps_shared6 import (
     AppComponentHealth,
     AppEvent,
     AppEventAutoscaling,
@@ -100,7 +100,7 @@ from .apps_part006 import (
     GetEvent,
     InstanceSizeCpuType,
 )
-from .apps_part007 import AppsDeployment, AppsDeploymentProgressStep, AppsInstanceSize
+from .apps_shared7 import AppsDeployment, AppsDeploymentProgressStep, AppsInstanceSize
 
 __all__ = [
     "App",
@@ -195,13 +195,13 @@ __all__ = [
 
 # Forward references deferred to TYPE_CHECKING in the parts above are
 # resolvable now that every part is loaded.
-_apps_part001 = importlib.import_module(".apps_part001", __package__)
+_apps_shared = importlib.import_module(".apps_shared", __package__)
 
-_deferred_apps_part001: tuple[tuple[str, object], ...] = (
+_deferred_apps_shared: tuple[tuple[str, object], ...] = (
     ("AppsDeploymentProgressStep", AppsDeploymentProgressStep),
 )
-for _name, _value in _deferred_apps_part001:
-    setattr(_apps_part001, _name, _value)
+for _name, _value in _deferred_apps_shared:
+    setattr(_apps_shared, _name, _value)
 
 AppsDeploymentJob.model_rebuild()
 AppsDeploymentFunctions.model_rebuild()
@@ -218,11 +218,11 @@ AppVariableDefinition.model_rebuild()
 AppComponentBase.model_rebuild()
 AppComponentInstanceBase.model_rebuild()
 
-_apps_part005 = importlib.import_module(".apps_part005", __package__)
+_apps_shared5 = importlib.import_module(".apps_shared5", __package__)
 
-_deferred_apps_part005: tuple[tuple[str, object], ...] = (("AppsDeployment", AppsDeployment),)
-for _name, _value in _deferred_apps_part005:
-    setattr(_apps_part005, _name, _value)
+_deferred_apps_shared5: tuple[tuple[str, object], ...] = (("AppsDeployment", AppsDeployment),)
+for _name, _value in _deferred_apps_shared5:
+    setattr(_apps_shared5, _name, _value)
 
 App.model_rebuild()
 AppsResponseVariant0.model_rebuild()
@@ -244,11 +244,11 @@ AppJobInvocation.model_rebuild()
 AppJobInvocationsVariant0.model_rebuild()
 AppJobInvocations.model_rebuild()
 
-_apps_part006 = importlib.import_module(".apps_part006", __package__)
+_apps_shared6 = importlib.import_module(".apps_shared6", __package__)
 
-_deferred_apps_part006: tuple[tuple[str, object], ...] = (("AppsDeployment", AppsDeployment),)
-for _name, _value in _deferred_apps_part006:
-    setattr(_apps_part006, _name, _value)
+_deferred_apps_shared6: tuple[tuple[str, object], ...] = (("AppsDeployment", AppsDeployment),)
+for _name, _value in _deferred_apps_shared6:
+    setattr(_apps_shared6, _name, _value)
 
 AppEventAutoscalingComponentsValue.model_rebuild()
 AppEventAutoscaling.model_rebuild()
